@@ -17,29 +17,38 @@ public class Classroom {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public int getTotalStudents() {
 		return totalStudents;
 	}
+	
 	public void setTotalStudents(int totalStudents) {
 		this.totalStudents = totalStudents;
 	}
+	
 	public Student getFirst() {
 		return first;
 	}
+	
 	public void setFirst(Student first) {
 		this.first = first;
 	}
+	
 	public Student getLast() {
 		return last;
 	}
+	
 	public void setLast(Student last) {
 		this.last = last;
 	}
 	
 	public void addStudent(Student s) {
+		
+		totalStudents++;
 		
 		if(first == null) {
 			
@@ -60,6 +69,8 @@ public class Classroom {
 	
 	public void addOrderedStudent(Student s) {
 
+		totalStudents++;
+		
 		if(first == null) {
 			
 			first = s;
@@ -85,11 +96,13 @@ public class Classroom {
 		}
 	}
 	
-	public int removeStudent(String name) {
+	public int removeStudents(String name) {
+
+		int count = 0;
 		
+		 
 		
-		
-		return 0;
+		return count;
 	}
 	
 	public String printStudents() {

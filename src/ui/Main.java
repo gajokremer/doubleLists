@@ -40,9 +40,10 @@ public class Main {
 
 		System.out.println(
 				"Select an option:\n" + 
-						"(1) Add Student\n" + 
-						"(2) Remove Student\n" + 
-						"(3) Print Students" + 
+						"(1) Add Student to Head\n" + 
+						"(2) Add Student to Tail\n" + 
+						"(3) Remove Student\n" + 
+						"(4) Print Students" + 
 
 				"\n(0) Exit");
 
@@ -65,22 +66,58 @@ public class Main {
 			break;
 
 		case 1:
-			addStudent();
-			break;
-
-		case 2:
-			removeStudent();
+//			addStudentToHead();
+			addStudent(option);
 			break;
 			
+		case 2:
+//			addStudentToTail();
+			addStudent(option);
+			break;
+
 		case 3:
+			removeStudents();
+			break;
+			
+		case 4:
 			System.out.println(classroom.printStudents());
+			break;
+			
+		case 5:
+			addExamples();
 			break;
 		}
 	}
 	
-	public void addStudent() {
-		
-		System.out.print("Code: ");
+//	public void addStudentToHead() {
+//		
+//		System.out.print("\nCode: ");
+//		String code = sc.nextLine();
+//		
+//		System.out.print("Name: ");
+//		String name = sc.nextLine();
+//		
+//		Student s = new Student(code, name);
+//		
+//		classroom.addStudent(s);
+//	}
+//	
+//	public void addStudentToTail() {
+//		
+//		System.out.print("\nCode: ");
+//		String code = sc.nextLine();
+//		
+//		System.out.print("Name: ");
+//		String name = sc.nextLine();
+//		
+//		Student s = new Student(code, name);
+//		
+//		classroom.addOrderedStudent(s);
+//	}
+	
+	public void addStudent(int n) {
+
+		System.out.print("\nCode: ");
 		String code = sc.nextLine();
 		
 		System.out.print("Name: ");
@@ -88,12 +125,36 @@ public class Main {
 		
 		Student s = new Student(code, name);
 		
-//		classroom.addStudent(s);
-		classroom.addOrderedStudent(s);
+		if(n == 1) {
+			
+			classroom.addStudent(s);
+			 
+		} else {
+			
+			classroom.addOrderedStudent(s);
+		}
 	}
 	
-	public void removeStudent() {
+	public void removeStudents() {
 		
+		System.out.print("\nName to search: ");
+		String name = sc.nextLine();
 		
+		classroom.removeStudents(name);
+	}
+	
+	public void addExamples() {
+		
+		Student s1 = new Student("1", "GK");
+		Student s2 = new Student("2", "SZ");
+		Student s3 = new Student("3", "SM");
+		
+		classroom.addStudent(s1);
+		classroom.addStudent(s2);
+		classroom.addStudent(s3);
+		
+//		classroom.addOrderedStudent(s1);
+//		classroom.addOrderedStudent(s2);
+//		classroom.addOrderedStudent(s3);
 	}
 }

@@ -44,24 +44,29 @@ public class Student {
 		this.prev = prev;
 	}
 
+//	@Override
+//	public String toString() {
+//
+//		String result = "";
+//
+//		result = "Code: " + code + ", Name: " + name;
+//
+//		if(next != null) {
+//
+//			result += ", Next: " + next.getCode();
+//		}
+//
+//		if(prev != null) {
+//
+//			result += ", Prev: " + prev.getCode();
+//		}
+//
+//		return result;
+//	}
+	
 	@Override
 	public String toString() {
 		
-		String result = "";
-		
-		result = "Code: " + code + ", Name: " + name;
-		
-		if(next != null) {
-			
-			result += ", Next: " + next.getCode();
-		}
-		
-		if(prev != null) {
-			
-			result += ", Prev: " + prev.getCode();
-		}
-		
-		return result;
-//		return "Student [code=" + code + ", name=" + name + ", next=" + next + ", prev=" + prev + "]";
+		return prev.getCode() + " <- " + "Code: " + code + ", Name: " + name + " -> " + next.getCode();
 	}
 }
