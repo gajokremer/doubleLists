@@ -67,6 +67,6 @@ public class Student {
 	@Override
 	public String toString() {
 		
-		return prev.getCode() + " <- " + "Code: " + code + ", Name: " + name + " -> " + next.getCode();
+		return "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
 	}
 }

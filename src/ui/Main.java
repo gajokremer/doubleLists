@@ -37,9 +37,11 @@ public class Main {
 		String option = "";
 
 		System.out.println("\n\n--------MAIN MENU--------\n");
+		
+		System.out.println("--Total Students: " + classroom.getTotalStudents());
 
 		System.out.println(
-				"Select an option:\n" + 
+				"\nSelect an option:\n" + 
 						"(1) Add Student to Head\n" + 
 						"(2) Add Student to Tail\n" + 
 						"(3) Remove Student\n" + 
@@ -140,7 +142,7 @@ public class Main {
 		System.out.print("\nName to search: ");
 		String name = sc.nextLine();
 		
-		classroom.removeStudents(name);
+		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
 	}
 	
 	public void addExamples() {
@@ -148,10 +150,19 @@ public class Main {
 		Student s1 = new Student("1", "GK");
 		Student s2 = new Student("2", "SZ");
 		Student s3 = new Student("3", "SM");
+		Student s4 = new Student("4", "GK");
+		
+//		Student s1 = new Student("1", "GK");
+//		Student s2 = new Student("2", "SZ");
+//		Student s3 = new Student("3", "SM");
+//		Student s4 = new Student("4", "GK");
+//		Student s5 = new Student("3", "SH");
 		
 		classroom.addStudent(s1);
 		classroom.addStudent(s2);
 		classroom.addStudent(s3);
+		classroom.addStudent(s4);
+//		classroom.addStudent(s5);
 		
 //		classroom.addOrderedStudent(s1);
 //		classroom.addOrderedStudent(s2);
