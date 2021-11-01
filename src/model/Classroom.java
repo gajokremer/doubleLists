@@ -119,13 +119,19 @@ public class Classroom {
 				
 				while(total != 0) {
 					
-					if(current.getName().equalsIgnoreCase(name)) {
-	
-						aux.setPrev(current.getPrev());
-						current.getPrev().setNext(aux);
+//					if(current.getName().equalsIgnoreCase(name)) {
+//	
+//						aux.setPrev(current.getPrev());
+//						current.getPrev().setNext(aux);
+//						
+//						count++;
+//						totalStudents--;
+//					}
+					
+					if(aux.getName().equalsIgnoreCase(name)) {
 						
-						count++;
-						totalStudents--;
+						current.setNext(aux.getNext());
+						
 					}
 					
 					total--;
@@ -230,5 +236,51 @@ public class Classroom {
 		}
 
 		return found == true;
+	}
+	
+	public int remove(String name) {
+
+		int count = 0;
+
+		Student current = first;
+		Student prev = first.getPrev();
+		boolean found = false;
+
+		if(first != null) {
+
+			do {
+
+				if(first == last && first.getName().equalsIgnoreCase(name)) {
+
+					first = null;
+					last = null;
+					count++;
+					totalStudents--;
+
+				} else if(current == last) {
+
+					last = prev;
+					last.setNext(first);
+					first.setPrev(last);
+					count++;
+					totalStudents--;
+
+				} else {
+
+					prev.setNext(current.getNext());
+					current.getNext().setPrev(prev);
+					count++;
+					totalStudents--;
+				}
+
+				found = true;
+
+				prev = current;
+				current = current.getNext();
+
+			} while (current != first && !found);
+		}
+
+		return count;
 	}
 }

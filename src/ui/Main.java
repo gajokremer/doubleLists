@@ -142,7 +142,8 @@ public class Main {
 		System.out.print("\nName to search: ");
 		String name = sc.nextLine();
 		
-		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
+//		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
+		System.out.println("\n--Students removed: " + classroom.remove(name));
 	}
 	
 	public void addExamples() {
