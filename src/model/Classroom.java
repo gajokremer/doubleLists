@@ -297,43 +297,98 @@ public class Classroom {
 		int count = 0;
 
 		Student current = first;
-		Student prev = first.getPrev();
+		Student aux = first.getNext();
 		boolean found = false;
-
+		
 		if(first != null) {
-
-			do {
-
-				if(first == last && first.getName().equalsIgnoreCase(name)) {
-
-					first = null;
-					last = null;
-					count++;
-					totalStudents--;
-
-				} else if(current == last) {
-
-					last = prev;
-					last.setNext(first);
-					first.setPrev(last);
-					count++;
-					totalStudents--;
-
-				} else {
-
-					prev.setNext(current.getNext());
-					current.getNext().setPrev(prev);
-					count++;
-					totalStudents--;
+			
+			while(current != null) {
+				
+				if(current.getName().equalsIgnoreCase(name)) {
+					
+					if(current == first) {
+						
+						if(aux == null) {
+							
+							first = null;
+							count++;
+							totalStudents--;
+							
+						} else {
+							
+							first = current.getNext();
+							aux = first.getNext();
+							first.setPrev(null);
+							
+							count++;
+							totalStudents--;
+						}
+						
+					} else if(current == last) {
+						
+						last = current.getPrev();
+						last.setNext(null);
+						count++;
+						totalStudents--;
+						
+					} else {
+						
+						current = current.getPrev();
+						aux = aux.getPrev();
+						
+						current.setNext(aux.getNext());
+						aux.getNext().setPrev(current);
+						aux = aux.getNext();
+						
+						count++;
+						totalStudents--;
+					}
 				}
-
-				found = true;
-
-				prev = current;
+				
 				current = current.getNext();
-
-			} while (current != first && !found);
+				
+				if(aux.getNext() != null) {
+					
+					aux = aux.getNext();
+				}
+			}
 		}
+		
+
+//		if(first != null) {
+//
+//			do {
+//
+//				if(first == last && first.getName().equalsIgnoreCase(name)) {
+//
+//					first = null;
+//					last = null;
+//					count++;
+//					totalStudents--;
+//
+//				} else if(current == last) {
+//
+//					last = prev;
+//					last.setNext(first);
+//					first.setPrev(last);
+//					count++;
+//					totalStudents--;
+//
+//				} else {
+//
+//					prev.setNext(current.getNext());
+//					current.getNext().setPrev(prev);
+//					count++;
+//					totalStudents--;
+//				}
+//
+//				found = true;
+//
+//				prev = current;
+//				current = current.getNext();
+//
+//			} while (current != first && !found);
+//		}
 
 		return count;
 	}

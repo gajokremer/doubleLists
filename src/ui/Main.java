@@ -143,7 +143,7 @@ public class Main {
 		String name = sc.nextLine();
 
 		//		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
-		System.out.println("\n--Students removed: " + classroom.removeStudents1(name));
+		System.out.println("\n--Students removed: " + classroom.remove(name));
 	}
 
 	public void addExamples() {
