@@ -96,69 +96,6 @@ public class Classroom {
 		}
 	}
 
-	public int removeStudents(String name) {
-		
-		System.out.println("NAME: " + name);
-		
-		int total = totalStudents;
-		int count = 0;
-
-		if(first != null) {
-
-			if(first == last && first.getName().equalsIgnoreCase(name)) {
-				
-				first = null;
-				last = null;
-				count++;
-				totalStudents--;
-				
-			} else {
-				
-				Student current = first;
-				Student aux = first.getNext();
-				
-				while(total != 0) {
-					
-//					if(current.getName().equalsIgnoreCase(name)) {
-//	
-//						aux.setPrev(current.getPrev());
-//						current.getPrev().setNext(aux);
-//						
-//						count++;
-//						totalStudents--;
-//					}
-					
-					if(aux.getName().equalsIgnoreCase(name)) {
-						
-						current.setNext(aux.getNext());
-						
-					}
-					
-					total--;
-					current = current.getNext();
-					aux = aux.getNext();
-				}
-				
-//				for(int i = 1; i <= totalStudents; i++) {
-//					
-//					if(current.getName().equalsIgnoreCase(name)) {
-//						
-//						current.getNext().setPrev(current.getPrev());
-//						current.getPrev().setNext(current.getNext());
-//						
-//						count++;
-//						totalStudents--;
-//					}
-//					
-//					current = current.getNext();
-//				}
-			}
-			
-		}
-
-		return count;
-	}
-
 	public String printStudents() {
 
 		String result = "";
@@ -168,17 +105,17 @@ public class Classroom {
 
 			Student temp = first;
 
-//			while(!code.equalsIgnoreCase(last.getCode())) {
-//				
-//				System.out.println("print while");
-//
-//				result += temp.toString() + "\n";
-//				temp = temp.getNext();
-//				code = temp.getCode();
-//			}
-			
+			//			while(!code.equalsIgnoreCase(last.getCode())) {
+			//				
+			//				System.out.println("print while");
+			//
+			//				result += temp.toString() + "\n";
+			//				temp = temp.getNext();
+			//				code = temp.getCode();
+			//			}
+
 			for(int i = 1; i < totalStudents; i++) {
-				
+
 				result += temp.toString() + "\n";
 				temp = temp.getNext();
 				code = temp.getCode();
@@ -193,51 +130,143 @@ public class Classroom {
 
 		return result;
 	}
-	
-	public boolean removeStudents1(String name) {
 
-		Student current;
-		boolean found = false;
-		current = last;
+	public int removeStudents(String name) {
+
+		System.out.println("NAME: " + name);
+
+		int total = totalStudents;
+		int count = 0;
 
 		if(first != null) {
 
-			while(current.getNext() != last && !found) {
+			if(first == last && first.getName().equalsIgnoreCase(name)) {
 
-				found = current.getNext().getName().equals(name);
+				first = null;
+				last = null;
+				count++;
+				totalStudents--;
 
-				if(!found) {
+			} else {
 
-					current = current.getNext();
-				}
-			}
+				Student current = first;
+				Student aux = first.getNext();
 
-			found = current.getNext().getName().equals(name);
+				while(total != 0) {
 
-			if(found) {
+					//					if(current.getName().equalsIgnoreCase(name)) {
+					//	
+					//						aux.setPrev(current.getPrev());
+					//						current.getPrev().setNext(aux);
+					//						
+					//						count++;
+					//						totalStudents--;
+					//					}
 
-				Student aux = current.getNext();
-				if(last == last.getNext()) {
+					if(aux.getName().equalsIgnoreCase(name)) {
 
-					last=null; 
+						current.setNext(aux.getNext());
 
-				} else {
-
-					if(aux == last) {
-
-						last=current;
 					}
 
-					current.setNext(aux.getNext());
+					total--;
+					current = current.getNext();
+					aux = aux.getNext();
 				}
 
-				aux=null; 
+				//				for(int i = 1; i <= totalStudents; i++) {
+				//					
+				//					if(current.getName().equalsIgnoreCase(name)) {
+				//						
+				//						current.getNext().setPrev(current.getPrev());
+				//						current.getPrev().setNext(current.getNext());
+				//						
+				//						count++;
+				//						totalStudents--;
+				//					}
+				//					
+				//					current = current.getNext();
+				//				}
 			}
+
 		}
 
-		return found == true;
+		return count;
 	}
-	
+
+	public int removeStudents1(String name) {
+
+		int count = 0;
+		Student current = first;
+		Student prev = first.getPrev();
+
+		if(first != null) {
+
+			do {
+
+				if(current.getName().equalsIgnoreCase(name)) { // compara el valor del dato current con el buscado
+
+					if(current == first){
+
+						if(first == last) {
+
+							first = null; 
+							last = null; 
+
+							count++;
+							totalStudents--;
+
+						} else {
+
+							first = first.getNext();
+							last.setNext(first); 
+							first.setPrev(last);
+
+							count++;
+							totalStudents--;
+
+						}
+
+					} else if (current == last){
+
+						last = prev;
+						first.setPrev(last);
+						last.setNext(first);
+
+						count++;
+						totalStudents--;
+
+					} else{
+
+						prev.setNext(current.getNext());
+						current.getNext().setPrev(prev);;
+						System.out.println(current);
+
+						if(count != 0) {
+
+							prev.setNext(current.getNext());
+							current.getNext().setPrev(prev);;
+
+							System.out.println("n");
+						}
+
+						count++;
+						totalStudents--;
+
+					}
+
+				}
+
+				prev = current; //referencia del prev al que vas a eliminar 
+				current = current.getNext();
+
+
+			}  while(current != first && first != null);
+		}
+
+		return count ;
+	}
+
 	public int remove(String name) {
 
 		int count = 0;
@@ -281,6 +310,15 @@ public class Classroom {
 			} while (current != first && !found);
 		}
 
+		return count;
+	}
+	
+	public int removeRecursion(String name) {
+		
+		int count = 0;
+		
+		
+		
 		return count;
 	}
 }
