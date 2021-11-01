@@ -45,8 +45,46 @@ public class Classroom {
 	public void setLast(Student last) {
 		this.last = last;
 	}
-
+	
 	public void addStudent(Student s) {
+		
+		totalStudents++;
+		
+		if(first == null) {
+			
+			first = s;
+			
+		} else {
+			
+			s.setNext(first);
+			first.setPrev(s);
+			first = s;
+		}
+	}
+
+	public void addOrderedStudent(Student s) {
+		
+		totalStudents++;
+
+		if(first == null) {
+
+			first = s;
+
+		} else if(first.getNext() == null) {
+
+			first.setNext(s);
+			s.setPrev(first);
+			last = s;
+
+		} else {
+
+			s.setPrev(last);
+			last.setNext(s);
+			last = s;
+		}
+	}
+	
+	public void addStudentCircular(Student s) {
 
 		totalStudents++;
 
@@ -57,7 +95,7 @@ public class Classroom {
 			first.setNext(last);
 			last.setPrev(first);
 
-		} else{
+		} else {
 
 			s.setNext(first);
 			first.setPrev(s);
@@ -67,7 +105,7 @@ public class Classroom {
 		}
 	}
 
-	public void addOrderedStudent(Student s) {
+	public void addOrderedStudentCircular(Student s) {
 
 		totalStudents++;
 
@@ -99,29 +137,16 @@ public class Classroom {
 	public String printStudents() {
 
 		String result = "";
-		String code = "";
 
 		if(first != null) {
 
 			Student temp = first;
 
-			//			while(!code.equalsIgnoreCase(last.getCode())) {
-			//				
-			//				System.out.println("print while");
-			//
-			//				result += temp.toString() + "\n";
-			//				temp = temp.getNext();
-			//				code = temp.getCode();
-			//			}
-
-			for(int i = 1; i < totalStudents; i++) {
+			for(int i = 0; i < totalStudents && temp != null; i++) {
 
 				result += temp.toString() + "\n";
 				temp = temp.getNext();
-				code = temp.getCode();
 			}
-
-			result += temp.toString();
 
 		} else {
 
@@ -310,15 +335,6 @@ public class Classroom {
 			} while (current != first && !found);
 		}
 
-		return count;
-	}
-	
-	public int removeRecursion(String name) {
-		
-		int count = 0;
-		
-		
-		
 		return count;
 	}
 }

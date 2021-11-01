@@ -44,29 +44,30 @@ public class Student {
 		this.prev = prev;
 	}
 
-	//	@Override
-	//	public String toString() {
-	//
-	//		String result = "";
-	//
-	//		result = "Code: " + code + ", Name: " + name;
-	//
-	//		if(next != null) {
-	//
-	//			result += ", Next: " + next.getCode();
-	//		}
-	//
-	//		if(prev != null) {
-	//
-	//			result += ", Prev: " + prev.getCode();
-	//		}
-	//
-	//		return result;
-	//	}
-
 	@Override
 	public String toString() {
+		
+		String result = "";
+		
+		if(prev != null && next != null) {
+			
+			result = "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
+		
+		} else if(prev == null && next == null) {
+			
+			result = "[-] <-- [" + "Code: " + code + ", Name: " + name + "] --> [-]";
+			
+		}else if(prev == null) {
+			
+			result = "[-] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
+			
+		}else if(next == null) {
+			
+			result = "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [-]";
+		}
 
-		return "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
+//		return "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
+	
+		return result;
 	}
 }

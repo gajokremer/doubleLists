@@ -35,7 +35,7 @@ class ClassroomTest {
 		
 		Student s = new Student("1", "GK");
 		
-		classroom.addOrderedStudent(s);
+		classroom.addStudent(s);
 		
 		assertEquals(1, classroom.getTotalStudents());
 	}

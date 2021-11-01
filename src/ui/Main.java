@@ -153,17 +153,17 @@ public class Main {
 		Student s3 = new Student("3", "SM");
 //		Student s4 = new Student("4", "GK");
 
-		//		Student s1 = new Student("1", "GK");
-		//		Student s2 = new Student("2", "SZ");
-		//		Student s3 = new Student("3", "SM");
-		//		Student s4 = new Student("4", "GK");
-		//		Student s5 = new Student("3", "SH");
+//		Student s1 = new Student("1", "GK");
+//		Student s2 = new Student("2", "SZ");
+//		Student s3 = new Student("3", "SM");
+//		Student s4 = new Student("4", "GK");
+//		Student s5 = new Student("3", "SH");
 
-		//		classroom.addStudent(s1);
-		//		classroom.addStudent(s2);
-		//		classroom.addStudent(s3);
-		//		classroom.addStudent(s4);
-		//		classroom.addStudent(s5);
+//		classroom.addStudent(s1);
+//		classroom.addStudent(s2);
+//		classroom.addStudent(s3);
+//		classroom.addStudent(s4);
+//		classroom.addStudent(s5);
 
 		classroom.addOrderedStudent(s1);
 		classroom.addOrderedStudent(s2);
