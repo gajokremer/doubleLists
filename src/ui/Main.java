@@ -86,36 +86,10 @@ public class Main {
 			break;
 
 		case 5:
-			addExamples();
+//			addExamples();
 			break;
 		}
 	}
-
-	//	public void addStudentToHead() {
-	//		
-	//		System.out.print("\nCode: ");
-	//		String code = sc.nextLine();
-	//		
-	//		System.out.print("Name: ");
-	//		String name = sc.nextLine();
-	//		
-	//		Student s = new Student(code, name);
-	//		
-	//		classroom.addStudent(s);
-	//	}
-	//	
-	//	public void addStudentToTail() {
-	//		
-	//		System.out.print("\nCode: ");
-	//		String code = sc.nextLine();
-	//		
-	//		System.out.print("Name: ");
-	//		String name = sc.nextLine();
-	//		
-	//		Student s = new Student(code, name);
-	//		
-	//		classroom.addOrderedStudent(s);
-	//	}
 
 	public void addStudent(int n) {
 
@@ -143,31 +117,33 @@ public class Main {
 		String name = sc.nextLine();
 
 		//		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
-		System.out.println("\n--Students removed: " + classroom.remove(name));
+		System.out.println("\n--Students removed: " + classroom.removeStudents(name));
 	}
 
-	public void addExamples() {
-
-		Student s1 = new Student("1", "GK");
-		Student s2 = new Student("2", "SZ");
-		Student s3 = new Student("3", "SM");
-//		Student s4 = new Student("4", "GK");
-
+//	public void addExamples() {
+//
 //		Student s1 = new Student("1", "GK");
 //		Student s2 = new Student("2", "SZ");
 //		Student s3 = new Student("3", "SM");
 //		Student s4 = new Student("4", "GK");
-//		Student s5 = new Student("3", "SH");
-
+//		Student s5 = new Student("5", "SH");
+//		Student s6 = new Student("6", "GK");
+//		Student s7 = new Student("7", "CD");
+//		Student s8 = new Student("8", "GK");
+//
 //		classroom.addStudent(s1);
 //		classroom.addStudent(s2);
 //		classroom.addStudent(s3);
 //		classroom.addStudent(s4);
 //		classroom.addStudent(s5);
-
-		classroom.addOrderedStudent(s1);
-		classroom.addOrderedStudent(s2);
-		classroom.addOrderedStudent(s3);
+//
+//		classroom.addOrderedStudent(s1);
+//		classroom.addOrderedStudent(s2);
+//		classroom.addOrderedStudent(s3);
 //		classroom.addOrderedStudent(s4);
-	}
+//		classroom.addOrderedStudent(s5);
+//		classroom.addOrderedStudent(s6);
+//		classroom.addOrderedStudent(s7);
+//		classroom.addOrderedStudent(s8);
+//	}
 }

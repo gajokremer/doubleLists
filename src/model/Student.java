@@ -57,11 +57,11 @@ public class Student {
 			
 			result = "[-] <-- [" + "Code: " + code + ", Name: " + name + "] --> [-]";
 			
-		}else if(prev == null) {
+		} else if(prev == null) {
 			
 			result = "[-] <-- [" + "Code: " + code + ", Name: " + name + "] --> [" + next.getCode() + "]";
 			
-		}else if(next == null) {
+		} else if(next == null) {
 			
 			result = "[" + prev.getCode() + "] <-- [" + "Code: " + code + ", Name: " + name + "] --> [-]";
 		}
